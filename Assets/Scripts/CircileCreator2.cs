@@ -135,10 +135,10 @@ public class CircileCreator2 : MonoBehaviour
         //2 - bottom
         //3 - left
 
-        Debug.Log(startCord[0, 0]);
-        Debug.Log(startCord[0, 1]);
-        Debug.Log(endCord[0, 0]);
-        Debug.Log(endCord[0, 1]);
+        // Debug.Log(startCord[0, 0]);
+        // Debug.Log(startCord[0, 1]);
+        // Debug.Log(endCord[0, 0]);
+        // Debug.Log(endCord[0, 1]);
 
         for (int i = 0; i < 4; i++)
         {
@@ -176,7 +176,6 @@ public class CircileCreator2 : MonoBehaviour
                         }
                         if (x == startCord[0, 0] && y == startCord[0, 1])
                         {
-                            Debug.Log("111");
                             break;
                         }
                     }
@@ -200,7 +199,6 @@ public class CircileCreator2 : MonoBehaviour
                         }
                         if (x == endCord[i + 1, 0] && y == endCord[i + 1, 1])
                         {
-                            Debug.Log("111");
                             break;
                         }
                     }
@@ -227,7 +225,6 @@ public class CircileCreator2 : MonoBehaviour
                         }
                         if (x == startCord[i + 1, 0] && y == startCord[i + 1, 1])
                         {
-                            Debug.Log("111");
                             break;
                         }
                     }
@@ -251,7 +248,6 @@ public class CircileCreator2 : MonoBehaviour
                         }
                         if (x == endCord[i + 1, 0] && y == endCord[i + 1, 1])
                         {
-                            Debug.Log("111");
                             break;
                         }
                     }
@@ -261,7 +257,7 @@ public class CircileCreator2 : MonoBehaviour
                 y = Mathf.Clamp(y, _yBottomCord + 1, _yUpperCord - 1);
 
                 _tiles[x, y].GetComponent<SpriteRenderer>().color = Color.cyan;
-                Debug.Log($"{x} {y}");
+                // Debug.Log($"{x} {y}");
             }
         }
     }
