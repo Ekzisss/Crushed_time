@@ -27,9 +27,18 @@ public class Slot : MonoBehaviour, IDropHandler
                 return;
             }
             Debug.Log("32323232323");
+            checkItem();
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.transform.localPosition = new Vector3(0, 0, 0);
             eventData.pointerDrag.GetComponent<DragDrop>().enabled = false;
+        }
+    }
+
+    private void checkItem()
+    {
+        if (transform.childCount != 0)
+        {
+            Destroy(transform.GetChild(0));
         }
     }
 }

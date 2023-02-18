@@ -25,8 +25,14 @@ public class CircileCreator2 : MonoBehaviour
 
     private int[,] startCord = new int[4, 2];
     private int[,] endCord = new int[4, 2];
+
+    public List<Transform> path = new List<Transform>();
+
+    [SerializeField] private GameObject road1;
+    [SerializeField] private GameObject road2;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _xHalf = _maxX / 2;
         _yHalf = _maxY / 2;
@@ -70,7 +76,18 @@ public class CircileCreator2 : MonoBehaviour
 
         for (int i = space; i < space + roadOnBox; i++)
         {
-            _tiles[_xLeftCord + i, _yUpperCord].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+            if (i == space)
+            {
+                makeRoad(_xLeftCord + i, _yUpperCord, false, 0);
+            }
+            else if (i == space + roadOnBox - 1)
+            {
+                makeRoad(_xLeftCord + i, _yUpperCord, false, 270);
+            }
+            else
+            {
+                makeRoad(_xLeftCord + i, _yUpperCord, true, 0);
+            }
 
             if (i == space + roadOnBox - 1)
             {
@@ -87,7 +104,18 @@ public class CircileCreator2 : MonoBehaviour
 
         for (int i = space; i < space + roadOnBox; i++)
         {
-            _tiles[_xLeftCord + i, _yBottomCord].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+            if (i == space)
+            {
+                makeRoad(_xLeftCord + i, _yBottomCord, false, 90);
+            }
+            else if (i == space + roadOnBox - 1)
+            {
+                makeRoad(_xLeftCord + i, _yBottomCord, false, 180);
+            }
+            else
+            {
+                makeRoad(_xLeftCord + i, _yBottomCord, true, 0);
+            }
 
             if (i == space + roadOnBox - 1)
             {
@@ -104,7 +132,18 @@ public class CircileCreator2 : MonoBehaviour
 
         for (int i = space; i < space + roadOnBox; i++)
         {
-            _tiles[_xLeftCord, _yBottomCord + i].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+            if (i == space)
+            {
+                makeRoad(_xLeftCord, _yBottomCord + i, false, 90);
+            }
+            else if (i == space + roadOnBox - 1)
+            {
+                makeRoad(_xLeftCord, _yBottomCord + i, false, 0);
+            }
+            else
+            {
+                makeRoad(_xLeftCord, _yBottomCord + i, true, 90);
+            }
 
             if (i == space + roadOnBox - 1)
             {
@@ -121,7 +160,18 @@ public class CircileCreator2 : MonoBehaviour
 
         for (int i = space; i < space + roadOnBox; i++)
         {
-            _tiles[_xRightCord, _yBottomCord + i].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+            if (i == space)
+            {
+                makeRoad(_xRightCord, _yBottomCord + i, false, 180);
+            }
+            else if (i == space + roadOnBox - 1)
+            {
+                makeRoad(_xRightCord, _yBottomCord + i, false, 270);
+            }
+            else
+            {
+                makeRoad(_xRightCord, _yBottomCord + i, true, 90);
+            }
 
             if (i == space + roadOnBox - 1)
             {
@@ -152,8 +202,11 @@ public class CircileCreator2 : MonoBehaviour
                 x = startCord[i, 0];
                 y = startCord[i, 1];
             }
+            path.Add(_tiles[x, y].transform);
             for (int j = 0; j < 100; j++)
             {
+                int lastX = x;
+                int lastY = y;
                 if (i % 3 == 0)
                 {
                     if (i == 3)
@@ -256,9 +309,101 @@ public class CircileCreator2 : MonoBehaviour
                 x = Mathf.Clamp(x, _xLeftCord + 1, _xRightCord - 1);
                 y = Mathf.Clamp(y, _yBottomCord + 1, _yUpperCord - 1);
 
-                _tiles[x, y].GetComponent<SpriteRenderer>().color = Color.cyan;
+                // makeRoad(lastX, lastY, bool straight, int degress)
+
+                path.Add(_tiles[x, y].transform);
+                // _tiles[x, y].GetComponent<SpriteRenderer>().color = Color.cyan;
                 // Debug.Log($"{x} {y}");
             }
+            path.Add(_tiles[x, y].transform);
         }
+
+        for (int x = 1; x < _maxX - 2; x++)
+        {
+            for (int y = 1; y < _maxY - 2; y++)
+            {
+                // Debug.Log("enterd");
+                // Debug.Log(path.Contains(_tiles[x + 1, y].transform));
+                if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x + 1, y].transform) && path.Contains(_tiles[x - 1, y].transform))
+                {
+                    // Debug.Log(1);
+                    makeRoad(x, y, true, 0);
+                }
+                else if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x, y + 1].transform) && path.Contains(_tiles[x, y - 1].transform))
+                {
+                    // Debug.Log(2);
+                    makeRoad(x, y, true, 90);
+                }
+                else if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x + 1, y].transform) && path.Contains(_tiles[x, y - 1].transform))
+                {
+                    // Debug.Log(3);
+                    makeRoad(x, y, false, 0);
+                }
+                else if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x + 1, y].transform) && path.Contains(_tiles[x, y + 1].transform))
+                {
+                    // Debug.Log(4);
+                    makeRoad(x, y, false, 90);
+                }
+                else if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x - 1, y].transform) && path.Contains(_tiles[x, y + 1].transform))
+                {
+                    // Debug.Log(5);
+                    makeRoad(x, y, false, 180);
+                }
+                else if (path.Contains(_tiles[x, y].transform) && path.Contains(_tiles[x - 1, y].transform) && path.Contains(_tiles[x, y - 1].transform))
+                {
+                    // Debug.Log(6);
+                    makeRoad(x, y, false, 270);
+                }
+            }
+        }
+
+        // for (int i = 0; i < path.Count - 1; i++)
+        // {
+        //     Debug.Log("enterd");
+        //     Debug.Log(path.Contains(_tiles[x + 1, y].transform));
+        //     _tiles.path[i].
+        //     if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x - 1, y].gameObject.transform))
+        //     {
+        //         Debug.Log(1);
+        //         makeRoad2(i, true, 90);
+        //     }
+        //     else if (path.Contains(_tiles[x, y + 1].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
+        //     {
+        //         Debug.Log(2);
+        //         makeRoad2(i, true, 0);
+        //     }
+        //     else if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
+        //     {
+        //         Debug.Log(3);
+        //         makeRoad2(i, false, 0);
+        //     }
+        //     else if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x, y + 1].gameObject.transform))
+        //     {
+        //         Debug.Log(4);
+        //         makeRoad2(i, false, 90);
+        //     }
+        //     else if (path.Contains(_tiles[x - 1, y].gameObject.transform) && path.Contains(_tiles[x, y + 1].gameObject.transform))
+        //     {
+        //         Debug.Log(5);
+        //         makeRoad2(i, false, 180);
+        //     }
+        //     else if (path.Contains(_tiles[x - 1, y].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
+        //     {
+        //         Debug.Log(6);
+        //         makeRoad2(i, false, 270);
+        //     }
+        // }
     }
+
+    void makeRoad(int x, int y, bool straight, int degress)
+    {
+        // _tiles[x, y].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+        Instantiate(straight ? road1 : road2, _tiles[x, y].transform.position, Quaternion.Euler(0, 0, degress), _tiles[x, y].transform);
+    }
+
+    // void makeRoad2(int i, bool straight, int degress)
+    // {
+    //     path[i].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
+    //     Instantiate(straight ? road1 : road2, path[i].position, Quaternion.Euler(0, 0, degress), path[i]);
+    // }
 }

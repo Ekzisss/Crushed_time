@@ -33,18 +33,17 @@ public class InventoryMeneger : MonoBehaviour
             if (i == slots.Count - 1)
             {
                 Debug.Log(slots[slots.Count - 1].transform.GetChild(0));
-                Transform b = slots[slots.Count - 1].transform.GetChild(0);
-                b.SetParent(null);
-                Destroy(b.gameObject);
+                Transform a = slots[slots.Count - 1].transform.GetChild(0);
+                a.SetParent(null);
+                // DestroyImmediate
+                Destroy(a.gameObject);
                 for (int j = slots.Count - 2; j >= 0; j--)
                 {
                     Debug.Log(j);
                     slots[j].transform.GetChild(0).SetParent(slots[j + 1].transform);
                     slots[j + 1].transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
                 }
-                Debug.Log(slots.Count);
-                Transform a = slots[slots.Count - 1].transform.GetChild(0);
-                a.localPosition.Set(0, 0, 0);
+                slots[slots.Count - 1].transform.GetChild(0).localPosition.Set(0, 0, 0);
                 item.transform.SetParent(slots[0].transform);
                 item.transform.localPosition = new Vector3(0, 0, 0);
                 slots[11].transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
