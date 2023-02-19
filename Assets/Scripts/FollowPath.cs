@@ -7,12 +7,12 @@ public class FollowPath : MonoBehaviour
     [SerializeField] private Transform path;
     private List<Transform> points = new List<Transform>();
     [SerializeField] private bool useChieldsPoints;
-    [SerializeField] private GameObject pathHolder;
+    [SerializeField] public GameObject pathHolder;
 
     [SerializeField] private float speed;
 
     private Transform target;
-    private int counter = 0;
+    [System.NonSerialized] public int counter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +25,11 @@ public class FollowPath : MonoBehaviour
         }
         else
         {
-            points = pathHolder.GetComponent<CircileCreator2>().path;
+            // points = pathHolder.GetComponent<CircileCreator2>().path;
+            points = GameObject.FindWithTag("Main").GetComponent<MainParameters>().path;
         }
 
-        target = points[0];
+        target = points[counter];
     }
 
     // Update is called once per frame

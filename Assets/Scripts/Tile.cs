@@ -1,38 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
-public class Tile : MonoBehaviour
+[CreateAssetMenu(fileName = "New Tile", menuName = "Tile")]
+public class Tile : ScriptableObject
 {
-    public GameObject content;
-    public Sprite tileTexture;
-    // private float scale = 3.125f;
+    public new string name;
+    public Sprite sprite;
 
-    private SpriteRenderer sprite;
+    public tileType tileType;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-        refresh();
-    }
+    [ShowIf("tileType", tileType.Spawner)]
+    [Header("Spawner")]
+    public string enemyName;
+    public spawnerType spawnerType;
+    public int spawnerCooldown;
 
-    // Update is called once per frame
-    void Update()
-    {
+    [ShowIf("tileType", tileType.Environment)]
+    [Header("Environment")]
+    public environmentType environmentType;
 
-    }
+    [ShowIf("tileType", tileType.Area)]
+    [Header("Area")]
+    public areaType areaType;
 
-    void refresh()
-    {
-        if (tileTexture)
-        {
-            sprite.color = new Color(255, 255, 255, 1);
-            sprite.sprite = tileTexture;
-        }
+    [ShowIf("tileType", tileType.Unique)]
+    [Header("Unique")]
+    public string what;
+}
 
-        // var TileContent = Instantiate(content, transform.position, Quaternion.identity);
+public enum tileType
+{
+    Spawner,
+    Environment,
+    Area,
+    Unique
+}
 
-        // sprite.transform.localScale = new Vector3(scale, scale, 1);
-    }
+public enum spawnerType
+{
+    OnRoad,
+    NearRoad,
+    AwayRoad
+}
+
+public enum environmentType
+{
+    hp,
+    damage,
+    attackSpeed
+}
+
+public enum areaType
+{
+    speed,
+    damage,
 }

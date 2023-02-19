@@ -31,6 +31,8 @@ public class CircileCreator2 : MonoBehaviour
     [SerializeField] private GameObject road1;
     [SerializeField] private GameObject road2;
 
+    [SerializeField] private GameObject hero;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -356,6 +358,15 @@ public class CircileCreator2 : MonoBehaviour
                 }
             }
         }
+
+        a = Random.Range(0, path.Count);
+
+        GameObject.FindWithTag("Main").GetComponent<MainParameters>().path = path;
+
+        GameObject heroObj = Instantiate(hero, path[a].position, Quaternion.identity);
+
+        heroObj.GetComponent<FollowPath>().pathHolder = gameObject;
+        heroObj.GetComponent<FollowPath>().counter = a;
 
         // for (int i = 0; i < path.Count - 1; i++)
         // {

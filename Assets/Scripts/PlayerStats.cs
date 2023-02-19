@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
     public float EvadeChance;
     public float Regen;
 
-    public List<float> damage;
+    public List<float> damage = new List<float>(2);
     public float attackSpeed;
     public float critChance;
     public float critMultiplier;

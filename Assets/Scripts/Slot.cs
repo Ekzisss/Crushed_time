@@ -26,7 +26,6 @@ public class Slot : MonoBehaviour, IDropHandler
             {
                 return;
             }
-            Debug.Log("32323232323");
             checkItem();
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.transform.localPosition = new Vector3(0, 0, 0);
@@ -41,10 +40,4 @@ public class Slot : MonoBehaviour, IDropHandler
             Destroy(transform.GetChild(0));
         }
     }
-}
-
-public enum FieldShow
-{
-    Show,
-    Hide
 }
