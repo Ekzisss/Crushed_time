@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EmptyTile : MonoBehaviour, IDropHandler
+public class EmptyTile : MonoBehaviour
 {
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log(eventData.pointerDrag);
-        if (transform.childCount == 0)
-        {
-            eventData.pointerDrag.GetComponent<Card>().place(transform);
-        }
-    }
+    // public void OnDrop(PointerEventData eventData)
+    // {
+    //     Debug.Log(eventData.pointerDrag);
+    //     if (transform.childCount == 0)
+    //     {
+    //         eventData.pointerDrag.GetComponent<Card>().place(transform);
+    //     }
+    // }
 
     // Start is called before the first frame update
     void Start()

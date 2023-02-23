@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 902416406703163303}
   - component: {fileID: 902416406703163296}
+  - component: {fileID: -1780916473020769096}
   m_Layer: 0
   m_Name: road1
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1780916473020769096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902416406703163298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fd27809f8caab48a2f8764ad7c884d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

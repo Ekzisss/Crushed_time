@@ -98,3 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
+  frame: {fileID: 4597597824223267301, guid: 460d33b6c8a76074bab0b0e040e4b5f2, type: 3}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20632b798e70f0e4dbc95383c9000508, type: 3}
+  m_Name: Spider Nest
+  m_EditorClassIdentifier: 
+  name: Spider Nest
+  sprite: {fileID: 21300000, guid: 481858c383d30cc4993719bd7593e5e9, type: 3}
+  sprite2: {fileID: 0}
+  tileType: 0
+  EnemyMapObj: {fileID: 11400000, guid: e5cec11f1bc3e3648b255e96291850f0, type: 2}
+  spawnerType: 1
+  spawnerCooldown: 15
+  environmentType: 0
+  areaType: 0
+  what: 

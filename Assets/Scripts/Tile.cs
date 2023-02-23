@@ -8,12 +8,13 @@ public class Tile : ScriptableObject
 {
     public new string name;
     public Sprite sprite;
+    public Sprite sprite2;
 
     public tileType tileType;
 
     [ShowIf("tileType", tileType.Spawner)]
     [Header("Spawner")]
-    public string enemyName;
+    public EnemyMapObj EnemyMapObj;
     public spawnerType spawnerType;
     public int spawnerCooldown;
 

@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20632b798e70f0e4dbc95383c9000508, type: 3}
-  m_Name: Forset
+  m_Script: {fileID: 11500000, guid: ff5823f15ef69b341b06254d80b7b4dd, type: 3}
+  m_Name: Spider
   m_EditorClassIdentifier: 
-  name: Forset
-  sprite: {fileID: 0}
-  tileType: 0
-  spawnerType: 0
-  spawnerCooldown: 2
-  environmentType: 0
-  areaType: 0
-  what: 
+  name: Spider
+  sprite: {fileID: 21300000, guid: af63f671643fcdb40949a47d00155ff6, type: 3}

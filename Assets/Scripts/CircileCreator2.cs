@@ -27,6 +27,7 @@ public class CircileCreator2 : MonoBehaviour
     private int[,] endCord = new int[4, 2];
 
     public List<Transform> path = new List<Transform>();
+    public List<Transform> nearPath = new List<Transform>();
 
     [SerializeField] private GameObject road1;
     [SerializeField] private GameObject road2;
@@ -368,53 +369,46 @@ public class CircileCreator2 : MonoBehaviour
         heroObj.GetComponent<FollowPath>().pathHolder = gameObject;
         heroObj.GetComponent<FollowPath>().counter = a;
 
-        // for (int i = 0; i < path.Count - 1; i++)
-        // {
-        //     Debug.Log("enterd");
-        //     Debug.Log(path.Contains(_tiles[x + 1, y].transform));
-        //     _tiles.path[i].
-        //     if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x - 1, y].gameObject.transform))
-        //     {
-        //         Debug.Log(1);
-        //         makeRoad2(i, true, 90);
-        //     }
-        //     else if (path.Contains(_tiles[x, y + 1].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
-        //     {
-        //         Debug.Log(2);
-        //         makeRoad2(i, true, 0);
-        //     }
-        //     else if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
-        //     {
-        //         Debug.Log(3);
-        //         makeRoad2(i, false, 0);
-        //     }
-        //     else if (path.Contains(_tiles[x + 1, y].gameObject.transform) && path.Contains(_tiles[x, y + 1].gameObject.transform))
-        //     {
-        //         Debug.Log(4);
-        //         makeRoad2(i, false, 90);
-        //     }
-        //     else if (path.Contains(_tiles[x - 1, y].gameObject.transform) && path.Contains(_tiles[x, y + 1].gameObject.transform))
-        //     {
-        //         Debug.Log(5);
-        //         makeRoad2(i, false, 180);
-        //     }
-        //     else if (path.Contains(_tiles[x - 1, y].gameObject.transform) && path.Contains(_tiles[x, y - 1].gameObject.transform))
-        //     {
-        //         Debug.Log(6);
-        //         makeRoad2(i, false, 270);
-        //     }
-        // }
+        makeNearPath();
+        GameObject.FindWithTag("Main").GetComponent<MainParameters>().nearPath = nearPath;
+        GameObject.FindWithTag("Main").GetComponent<MainParameters>()._tiles = _tiles;
     }
 
     void makeRoad(int x, int y, bool straight, int degress)
     {
-        // _tiles[x, y].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
         Instantiate(straight ? road1 : road2, _tiles[x, y].transform.position, Quaternion.Euler(0, 0, degress), _tiles[x, y].transform);
     }
 
-    // void makeRoad2(int i, bool straight, int degress)
-    // {
-    //     path[i].GetComponent<SpriteRenderer>().color = new Color(203, 175, 81, 1);
-    //     Instantiate(straight ? road1 : road2, path[i].position, Quaternion.Euler(0, 0, degress), path[i]);
-    // }
+    void makeNearPath()
+    {
+        for (int i = 0; i < _maxX; i++)
+        {
+            for (int j = 0; j < _maxY; j++)
+            {
+                if (i + 1 < _maxX && _tiles[i + 1, j].transform.childCount > 0)
+                {
+                    nearPath.Add(_tiles[i, j].transform);
+                    continue;
+                }
+
+                if (i - 1 >= 0 && _tiles[i - 1, j].transform.childCount > 0)
+                {
+                    nearPath.Add(_tiles[i, j].transform);
+                    continue;
+                }
+
+                if (j + 1 < _maxY && _tiles[i, j + 1].transform.childCount > 0)
+                {
+                    nearPath.Add(_tiles[i, j].transform);
+                    continue;
+                }
+
+                if (j - 1 >= 0 && _tiles[i, j - 1].transform.childCount > 0)
+                {
+                    nearPath.Add(_tiles[i, j].transform);
+                    continue;
+                }
+            }
+        }
+    }
 }
