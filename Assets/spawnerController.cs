@@ -62,8 +62,8 @@ public class spawnerController : MonoBehaviour
         //     yield break;
         // }
 
-        GameObject enemy = Instantiate(Resources.Load("EnemyBase") as GameObject, pos, Quaternion.identity, EnemyHolder.transform);
+        GameObject enemy = Instantiate(Resources.Load("EnemyBaseInFight") as GameObject, pos, Quaternion.identity, EnemyHolder.transform);
         DestroyImmediate(alert);
-        enemy.GetComponent<EnemyOnMap>().EnemyMapObj = EnemyInfoTemp;
+        enemy.GetComponent<EnemyManager>().EnemyInfo = EnemyInfoTemp;
     }
 }

@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &91328170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 91328171}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Hero
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &91328171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91328170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858229300
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,14 +298,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce15cc398ba6b96449c061ad3e532eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyObj:
+  EnemyInfo:
   - {fileID: 11400000, guid: fd7f70ba97cfa144ea0b86bd21fa3876, type: 2}
   - {fileID: 11400000, guid: d9ae55f4d51918d40be309b28efb60a9, type: 2}
   - {fileID: 11400000, guid: e5cec11f1bc3e3648b255e96291850f0, type: 2}
   EnemyCount: 0a0000001400000002000000
   borderX: 9
   borderY: 5
-  timerBetweenSpawns: 1
+  timerBetweenSpawns: 0.2
   timerTillSpawn: 1.5
   alertObj: {fileID: 3411324077466105683, guid: 4636598086177284398b32b03973b8a3, type: 3}
   EnemyHolder: {fileID: 1440924078}
