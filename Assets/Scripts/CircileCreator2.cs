@@ -376,6 +376,7 @@ public class CircileCreator2 : MonoBehaviour
 
     void makeRoad(int x, int y, bool straight, int degress)
     {
+        _tiles[x, y].name = "road";
         Instantiate(straight ? road1 : road2, _tiles[x, y].transform.position, Quaternion.Euler(0, 0, degress), _tiles[x, y].transform);
     }
 

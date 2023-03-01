@@ -80,8 +80,7 @@ public class TileManager : MonoBehaviour
                 {
                     if (_tiles[i + 1, j].transform.childCount == 2 ||
                         (_tiles[i + 1, j].transform.childCount == 1 &&
-                        (_tiles[i + 1, j].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_0" ||
-                        _tiles[i + 1, j].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_5")))
+                        _tiles[i + 1, j].transform.name == "road"))
                     {
                         right = _tiles[i + 1, j];
                         NearSpawnerPlaces.Add(_tiles[i + 1, j]);
@@ -89,8 +88,7 @@ public class TileManager : MonoBehaviour
 
                     if (_tiles[i - 1, j].transform.childCount == 2 ||
                         (_tiles[i - 1, j].transform.childCount == 1 &&
-                        (_tiles[i - 1, j].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_0" ||
-                        _tiles[i - 1, j].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_5")))
+                        _tiles[i - 1, j].transform.name == "road"))
                     {
                         left = _tiles[i - 1, j];
                         NearSpawnerPlaces.Add(_tiles[i - 1, j]);
@@ -98,8 +96,7 @@ public class TileManager : MonoBehaviour
 
                     if (_tiles[i, j + 1].transform.childCount == 2 ||
                         (_tiles[i, j + 1].transform.childCount == 1 &&
-                        (_tiles[i, j + 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_0" ||
-                        _tiles[i, j + 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_5")))
+                        _tiles[i, j + 1].transform.name == "road"))
                     {
                         upper = _tiles[i, j + 1];
                         NearSpawnerPlaces.Add(_tiles[i, j + 1]);
@@ -107,8 +104,7 @@ public class TileManager : MonoBehaviour
 
                     if (_tiles[i, j - 1].transform.childCount == 2 ||
                         (_tiles[i, j - 1].transform.childCount == 1 &&
-                        (_tiles[i, j - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_0" ||
-                        _tiles[i, j - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite.name == "roads_5")))
+                        _tiles[i, j - 1].transform.name == "road"))
                     {
                         bottom = _tiles[i, j - 1];
                         NearSpawnerPlaces.Add(_tiles[i, j - 1]);
