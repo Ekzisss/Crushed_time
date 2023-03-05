@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5823f15ef69b341b06254d80b7b4dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 99af6b10c8a6c6c42b8647ddc5315962, type: 3}
   m_Name: Wolf
   m_EditorClassIdentifier: 
   name: Wolf
-  sprite: {fileID: 21300000, guid: ff1f992406101df4ea1523cdd1273647, type: 3}
+  sprite: {fileID: 21300000, guid: 79a91fa1eaf85424c847d3b790a348f5, type: 3}
+  EnemyType: 0
+  damage: 5
+  moveSpeed: 7
+  shootCd: 0
+  distanceToPlayer: 0

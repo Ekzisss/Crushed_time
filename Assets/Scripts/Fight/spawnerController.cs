@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class spawnerController : MonoBehaviour
 {
-    public List<EnemyMapObj> EnemyInfo;
+    public List<EnemyInfo> EnemyInfo;
     public List<int> EnemyCount;
 
-    public float borderX;
-    public float borderY;
+    public float borderX = 19.5f;
+    public float borderY = 17.5f;
 
-    public float timerBetweenSpawns = 1f;
+    public float timerBetweenSpawns = 0.2f;
 
-    public float timerTillSpawn = 1.5f;
+    public float timerTillSpawn = 1f;
 
     public GameObject alertObj;
 
@@ -45,7 +45,7 @@ public class spawnerController : MonoBehaviour
         Vector2 pos = new Vector2(Random.Range(-borderX, borderX), Random.Range(-borderY, borderY));
         GameObject alert = Instantiate(alertObj, pos, Quaternion.identity);
 
-        EnemyMapObj EnemyInfoTemp = EnemyInfo[i];
+        EnemyInfo EnemyInfoTemp = EnemyInfo[i];
 
         EnemyCount[i] -= 1;
         if (EnemyCount[i] <= 0)

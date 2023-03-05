@@ -64,7 +64,7 @@ public class TileManager : MonoBehaviour
             yield return new WaitForSeconds(tile.spawnerCooldown);
 
             GameObject enemy = Instantiate(Resources.Load("EnemyBase") as GameObject, transform.position, Quaternion.identity);
-            enemy.GetComponent<EnemyOnMap>().EnemyMapObj = tile.EnemyMapObj;
+            enemy.GetComponent<EnemyOnMap>().EnemyInfo = tile.EnemyInfo;
 
             // Debug.Log("spwned");
         }
@@ -121,7 +121,7 @@ public class TileManager : MonoBehaviour
             Random.Range(0, NearSpawnerPlaces.Count);
 
             GameObject enemy = Instantiate(Resources.Load("EnemyBase") as GameObject, NearSpawnerPlaces[Random.Range(0, NearSpawnerPlaces.Count)].transform.position, Quaternion.identity);
-            enemy.GetComponent<EnemyOnMap>().EnemyMapObj = tile.EnemyMapObj;
+            enemy.GetComponent<EnemyOnMap>().EnemyInfo = tile.EnemyInfo;
         }
     }
 
@@ -137,7 +137,7 @@ public class TileManager : MonoBehaviour
             Random.Range(0, path.Count);
 
             GameObject enemy = Instantiate(Resources.Load("EnemyBase") as GameObject, path[Random.Range(0, path.Count)].position, Quaternion.identity);
-            enemy.GetComponent<EnemyOnMap>().EnemyMapObj = tile.EnemyMapObj;
+            enemy.GetComponent<EnemyOnMap>().EnemyInfo = tile.EnemyInfo;
         }
     }
 

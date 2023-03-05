@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public EnemyMapObj EnemyInfo;
+    public EnemyInfo EnemyInfo;
 
     private Transform player;
+
+    public int damage;
+    public float moveSpeed;
 
     void Start()
     {

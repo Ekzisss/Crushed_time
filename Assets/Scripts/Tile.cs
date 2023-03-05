@@ -14,8 +14,10 @@ public class Tile : ScriptableObject
 
     [ShowIf("tileType", tileType.Spawner)]
     [Header("Spawner")]
-    public EnemyMapObj EnemyMapObj;
+    public EnemyInfo EnemyInfo;
+    [ShowIf("tileType", tileType.Spawner)]
     public spawnerType spawnerType;
+    [ShowIf("tileType", tileType.Spawner)]
     public int spawnerCooldown;
 
     [ShowIf("tileType", tileType.Environment)]

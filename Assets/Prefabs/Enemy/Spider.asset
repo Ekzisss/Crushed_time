@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5823f15ef69b341b06254d80b7b4dd, type: 3}
-  m_Name: Slime
+  m_Script: {fileID: 11500000, guid: 99af6b10c8a6c6c42b8647ddc5315962, type: 3}
+  m_Name: Spider
   m_EditorClassIdentifier: 
-  name: Slime
-  sprite: {fileID: 21300000, guid: efd9f2cd116453b47a695b28dfd19c96, type: 3}
+  name: Spider
+  sprite: {fileID: 21300000, guid: 949bc65574ab95447904c2cae23090ed, type: 3}
+  EnemyType: 1
+  damage: 4
+  moveSpeed: 6
+  shootCd: 3
+  distanceToPlayer: 5

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyOnMap : MonoBehaviour
 {
-    public EnemyMapObj EnemyMapObj;
+    public EnemyInfo EnemyInfo;
 
 
     private void Start()
     {
-        gameObject.name = EnemyMapObj.name;
-        gameObject.GetComponent<SpriteRenderer>().sprite = EnemyMapObj.sprite;
+        gameObject.name = EnemyInfo.name;
+        gameObject.GetComponent<SpriteRenderer>().sprite = EnemyInfo.sprite;
     }
 }

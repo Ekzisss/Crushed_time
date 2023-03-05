@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4715720006845444857}
   - component: {fileID: 4715720006845444856}
   - component: {fileID: 3751912718983296507}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBaseInFight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4715720006845444859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.55, y: -0.39, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
